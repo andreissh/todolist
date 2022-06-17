@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Main.module.scss";
 import InputBlock from "./InputBlock";
 import NotesList from "./NotesList";
@@ -7,7 +7,6 @@ import FilterBlock from "./FilterBlock";
 const Main = () => {
     const [todoAll, setTodoAll] = useState([]);
     const [todoFiltered, setTodoFiltered] = useState([]);
-    const filter = useRef();
 
     useEffect(() => {
         setTodoFiltered([...todoAll]);
@@ -20,12 +19,7 @@ const Main = () => {
                 <div className={styles.todolist}>
                     <InputBlock todoAll={todoAll} setTodoAll={setTodoAll} />
                     <NotesList todoFiltered={todoFiltered} todoAll={todoAll} setTodoAll={setTodoAll} />
-                    <FilterBlock
-                        todoAll={todoAll}
-                        setTodoAll={setTodoAll}
-                        setTodoFiltered={setTodoFiltered}
-                        filter={filter}
-                    />
+                    <FilterBlock todoAll={todoAll} setTodoAll={setTodoAll} setTodoFiltered={setTodoFiltered} />
                 </div>
             </div>
         </div>

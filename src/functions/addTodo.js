@@ -1,8 +1,8 @@
-export const addTodo = (todo, setTodo, text, todoAll, setTodoAll) => {
+export const addTodo = (todo, setTodo, todoAll, setTodoAll, text) => {
     if (!todo) {
         setTodo("Введите текст!");
         text.current.addEventListener("focus", () => setTodo(""));
-    } else if (todoAll.findIndex((obj) => obj.todo === todo) !== -1) {
+    } else if (todoAll.findIndex((note) => note.todo === todo) !== -1) {
         setTodo("Такая заметка уже создана!");
         text.current.addEventListener("focus", () => setTodo(""));
     } else {

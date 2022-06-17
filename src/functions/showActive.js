@@ -1,7 +1,7 @@
 import { findActiveClass } from "./findActiveClass";
 
-export const showActive = (setTodoFiltered, todoAll, filter) => {
-    setTodoFiltered([...todoAll].filter((obj) => !obj.checked));
+export const showActive = (todoAll, setTodoFiltered, filter) => {
+    setTodoFiltered([...todoAll].filter((note) => !note.checked));
     const active = filter.current.children[1];
     if (active.classList.length < 2) {
         let activeClass = findActiveClass(filter);

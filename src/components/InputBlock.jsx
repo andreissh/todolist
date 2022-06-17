@@ -5,9 +5,10 @@ import styles from "../styles/InputBlock.module.scss";
 const InputBlock = ({ todoAll, setTodoAll }) => {
     const [todo, setTodo] = useState("");
     const text = useRef();
+    const addTodoData = [todo, setTodo, todoAll, setTodoAll, text];
 
     const onKeyDown = (e) => {
-        if (e.keyCode === 13) addTodo(todo, setTodo, text, todoAll, setTodoAll);
+        if (e.keyCode === 13) addTodo(...addTodoData);
     };
 
     return (
@@ -20,7 +21,7 @@ const InputBlock = ({ todoAll, setTodoAll }) => {
                 onKeyDown={onKeyDown}
                 ref={text}
             ></input>
-            <button className={styles.btn} onClick={() => addTodo(todo, setTodo, text, todoAll, setTodoAll)}></button>
+            <button className={styles.btn} onClick={() => addTodo(...addTodoData)}></button>
         </div>
     );
 };
