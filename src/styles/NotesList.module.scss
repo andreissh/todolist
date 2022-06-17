@@ -1,0 +1,76 @@
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.listItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.itemCheckbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+    width: 40px;
+    min-height: 40px;
+    margin: 0;
+    cursor: pointer;
+
+    &:checked + .itemChecked {
+        opacity: 1;
+    }
+
+    &:checked ~ .itemLabel {
+        text-decoration: line-through;
+        color: rgb(150, 150, 150);
+    }
+}
+
+.itemChecked {
+    opacity: 0;
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 23px;
+        left: 16px;
+        height: 1px;
+        width: 5px;
+        transform: rotate(40deg);
+        background-color: green;
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: 20px;
+        left: 18px;
+        height: 1px;
+        width: 10px;
+        transform: rotate(-60deg);
+        background-color: green;
+    }
+}
+
+.itemLabel {
+    padding-left: 50px;
+    cursor: pointer;
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 10px;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid rgb(210, 210, 210);
+    }
+}
